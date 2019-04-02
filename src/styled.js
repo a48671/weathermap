@@ -27,7 +27,7 @@ export const Header = styled.h1.attrs({className: 'header'})`
 `;
 
 export const AddCity = styled.div.attrs({className: 'add-city'})`
-	padding: 10px;
+	padding: 20px;
 	background-color: ${colors.orange};
 `;
 
@@ -35,7 +35,7 @@ export const AddCityContainer = styled.div.attrs({className: 'add-city__containe
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 500px;
+	width: 600px;
 	margin: 0 auto;
 `;
 

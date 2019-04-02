@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {InputCity} from './styled';
 
@@ -11,6 +12,14 @@ const Input = props => {
 			placeholder={placeholder}
 		/>
 	);
+};
+
+Input.propTypes = {
+	placeholder: PropTypes.string
+};
+
+Input.defaultProps = {
+	placeholder: ''
 }
 
 export default  Input;
