@@ -11,6 +11,7 @@ export const Wrapper = styled.div.attrs({className: 'wrapper'})`
 `;
 
 export const Dialog = styled.div.attrs({className: 'dialog'})`
+	width: calc(100% - 20px);
 	max-width: 1024px;
 	min-width: 768px;
 	border-radius: 10px;
@@ -28,6 +29,14 @@ export const Header = styled.h1.attrs({className: 'header'})`
 export const AddCity = styled.div.attrs({className: 'add-city'})`
 	padding: 10px;
 	background-color: ${colors.orange};
+`;
+
+export const AddCityContainer = styled.div.attrs({className: 'add-city__container'})`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 500px;
+	margin: 0 auto;
 `;
 
 export const ListCities = styled.div.attrs({className: 'list-cities'})`

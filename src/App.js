@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import {Wrapper, Dialog, Header, AddCity, ListCities} from './styled';
+import {Wrapper, Dialog, Header, AddCity, ListCities, AddCityContainer} from './styled';
+
+import Input from './components/Input';
 
 class App extends Component {
 	render() {
@@ -9,7 +11,12 @@ class App extends Component {
 				<Dialog>
 					<Header>WeatherMap</Header>
 					<AddCity>
+						<AddCityContainer>
+							<Input
+								placeholder="Input City"
+							/>
 
+						</AddCityContainer>
 					</AddCity>
 					<ListCities>
 
