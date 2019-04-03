@@ -5,21 +5,27 @@ import {InputCity} from './styled';
 
 const Input = props => {
 
-	const {placeholder} = props;
+	const {placeholder, inputValue, onChangeInput} = props;
 
 	return (
 		<InputCity
+			onChange={event => {onChangeInput(event)}}
+			value={inputValue}
 			placeholder={placeholder}
 		/>
 	);
 };
 
 Input.propTypes = {
-	placeholder: PropTypes.string
+	placeholder: PropTypes.string,
+	inputValue: PropTypes.string,
+	onChangeInput: PropTypes.func
 };
 
 Input.defaultProps = {
-	placeholder: ''
+	placeholder: '',
+	inputValue: '',
+	onChangeInput: () => null
 }
 
 export default  Input;

@@ -5,10 +5,13 @@ import {ButtonStyle} from './styled';
 
 const Button = props => {
 
-	const {title, type} = props;
+	const {title, type, onClick} = props;
 
 	return(
-		<ButtonStyle type={type}>
+		<ButtonStyle
+			onClick={onClick}
+			type={type}
+		>
 			{title}
 		</ButtonStyle>
 	);
@@ -16,12 +19,14 @@ const Button = props => {
 
 Button.propTypes = {
 	title: PropTypes.string,
-	type: PropTypes.string
+	type: PropTypes.string,
+	onClick: PropTypes.func
 };
 
 Button.defaultProps = {
 	title: '',
-	type: 'add'
+	type: 'add',
+	onClick: () => null
 };
 
 
