@@ -40,5 +40,5 @@ export const AddCityContainer = styled.div.attrs({className: 'add-city__containe
 `;
 
 export const ListCities = styled.div.attrs({className: 'list-cities'})`
-	padding: 10px;
+	padding: 10px 0;
 `;

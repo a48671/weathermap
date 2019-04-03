@@ -5,21 +5,23 @@ import {ButtonStyle} from './styled';
 
 const Button = props => {
 
-	const {title} = props;
+	const {title, type} = props;
 
 	return(
-		<ButtonStyle>
+		<ButtonStyle type={type}>
 			{title}
 		</ButtonStyle>
 	);
 };
 
 Button.propTypes = {
-	title: PropTypes.string
+	title: PropTypes.string,
+	type: PropTypes.string
 };
 
 Button.defaultProps = {
-	title: ''
+	title: '',
+	type: 'add'
 };
 
 

@@ -4,6 +4,10 @@ import {Wrapper, Dialog, Header, AddCity, ListCities, AddCityContainer} from './
 
 import Input from './components/Input';
 import Button from "./components/Button";
+import Item from "./components/Item";
+
+const APIKEY = 'd4ebea886fcc0070d6f68ff6ab962c00';
+const FINDCITY = 'http://api.openweathermap.org/data/2.5/find?q=krasnoufimsk&APPID='
 
 class App extends Component {
 	render() {
@@ -17,12 +21,15 @@ class App extends Component {
 								placeholder="Input City"
 							/>
 							<Button
+								type="add"
 								title="Add City"
 							/>
 						</AddCityContainer>
 					</AddCity>
 					<ListCities>
-
+						<Item />
+						<Item />
+						<Item />
 					</ListCities>
 				</Dialog>
 			</Wrapper>
