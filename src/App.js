@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import {conversionInCelsius} from './helpers/conversionInCelsius';
+import {sortingCities} from './helpers/sortingCities';
 
 import {Wrapper, Dialog, Header, AddCity, ListCities, AddCityContainer} from './styled';
 
@@ -15,6 +16,7 @@ class App extends Component {
 
 	state = {
 		inputValue: '',
+		sort: 'random', // random or asc or desc
 		listCities: []
 	};
 
@@ -22,8 +24,9 @@ class App extends Component {
 		super(props);
 
 		this.onChangeInput = this.onChangeInput.bind(this);
-		this.onClickAddCity = this.onClickAddCity.bind(this);
+		this.onSubmitAddCity = this.onSubmitAddCity.bind(this);
 		this.onClickDelete = this.onClickDelete.bind(this);
+		this.sortingItems = this.sortingItems.bind(this);
 	}
 
 	onChangeInput = function(event) {
@@ -32,7 +35,9 @@ class App extends Component {
 		});
 	};
 
-	onClickAddCity = function() {
+	onSubmitAddCity = function(e) {
+
+		e.preventDefault();
 
 		const {inputValue, listCities} = this.state;
 
@@ -56,7 +61,8 @@ class App extends Component {
 								temperature: conversionInCelsius(data.main.temp),
 								pressure: Math.round(data.main.pressure)
 							}
-						]
+						],
+						sort: 'random'
 					}, () => {console.log(this.state)});
 				} else {
 					alert('Sorry! Specified city not found')
@@ -79,34 +85,64 @@ class App extends Component {
 				...newListCities
 			]
 		});
+	};
+
+	sortingItems = function() {
+
+		const {listCities, sort} = this.state;
+
+		let newListCities;
+		let newSort;
+
+		if(sort === 'random') {
+			newListCities = [...sortingCities(listCities)];
+			newSort = 'asc'
+		} else {
+			newListCities = listCities.reverse();
+			newSort = sort === 'asc' ? 'desc' : 'asc';
+		}
+
+		this.setState(
+			{
+				listCities: [
+					...newListCities
+				],
+				sort: newSort
+			}
+		);
 	}
 
 	render() {
 
-		const {inputValue, listCities} = this.state;
+		const {inputValue, listCities, sort} = this.state;
 
-		const {onChangeInput, onClickAddCity, onClickDelete} = this;
+		const {onChangeInput, onSubmitAddCity, onClickDelete, sortingItems} = this;
 
 		return (
 			<Wrapper>
 				<Dialog>
 					<Header>WeatherMap</Header>
 					<AddCity>
-						<AddCityContainer>
+						<AddCityContainer
+							onSubmit={onSubmitAddCity}
+						>
 							<Input
 								inputValue={inputValue}
 								onChangeInput={onChangeInput}
 								placeholder="Input City"
 							/>
 							<Button
-								onClick={onClickAddCity}
+								onClick={onSubmitAddCity}
 								type="add"
 								title="Add City"
 							/>
 						</AddCityContainer>
 					</AddCity>
 					<ListCities>
-						<Control />
+						<Control
+							sort={sort}
+							sortingItems={sortingItems}
+						/>
 						{
 							listCities.map((item, index) => {
 								return(

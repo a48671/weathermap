@@ -31,7 +31,7 @@ export const AddCity = styled.div.attrs({className: 'add-city'})`
 	background-color: ${colors.orange};
 `;
 
-export const AddCityContainer = styled.div.attrs({className: 'add-city__container'})`
+export const AddCityContainer = styled.form.attrs({className: 'add-city__container'})`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

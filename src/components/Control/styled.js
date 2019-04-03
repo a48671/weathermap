@@ -11,12 +11,34 @@ export const Wrapper = styled.div.attrs({className: 'control'})`
 `;
 
 export const City = styled.div.attrs({className: 'control__city'})`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	width: calc(100% - 130px - 130px - 150px);
 	cursor: pointer;
-	padding: 10px 0 10px 30px;
+	padding: 10px 30px;
 	&:hover {
 		background-color: ${colors.orange};
 		color: ${colors.white};
+		&:after {
+		border-top: 2px solid ${colors.white};
+		border-right: 2px solid ${colors.white};
+	}
+	}
+	&:after {
+		display: block;
+		content: '';
+		width: 10px;
+		height: 10px;
+		border-top: 2px solid ${colors.dark};
+		border-right: 2px solid ${colors.dark};
+		transform: rotate(${
+			props => {
+				if(props.sort === 'asc') return '-45deg';
+				if(props.sort === 'desc') return '135deg';
+				if(props.sort === 'random') return '45deg';
+			}
+		});
 	}
 `;
 
