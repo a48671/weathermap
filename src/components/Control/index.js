@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {Wrapper, City, Temperature, Pressure, Delete} from './styled';
-import Input from "../Input";
 
 const Control = props => {
 

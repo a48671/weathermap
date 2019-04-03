@@ -63,7 +63,7 @@ class App extends Component {
 							}
 						],
 						sort: 'random'
-					}, () => {console.log(this.state)});
+					});
 				} else {
 					alert('Sorry! Specified city not found')
 				}
