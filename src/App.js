@@ -48,7 +48,7 @@ class App extends Component {
 
 		try {
 			axios.get(
-				'http://api.openweathermap.org/data/2.5/find?APPID=d4ebea886fcc0070d6f68ff6ab962c00&q=' + encodeURIComponent(inputValue),
+				'https://api.openweathermap.org/data/2.5/find?APPID=d4ebea886fcc0070d6f68ff6ab962c00&q=' + encodeURIComponent(inputValue),
 				{
 					'Content-Type': 'application/json; charset=utf-8'
 				}
